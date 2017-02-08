@@ -1,0 +1,170 @@
+$imgpath: '../img/';
+
+$sun: (
+        size:90px,
+        img: 'sun.png',
+);
+$mercuriu: (
+        size:20px,
+        animation-duration: 1s
+);
+$venera: (
+        size:35px,
+        animation-duration: 2s
+);
+$earth: (
+        size:40px,
+        animation-duration: 4s
+);
+$mars: (
+        size:30px,
+        animation-duration: 8s
+);
+$jupiter: (
+        size:70px,
+        animation-duration: 16s
+);
+$saturn: (
+        size:60px,
+        animation-duration: 32s
+);
+$uranus: (
+        size:30px,
+        animation-duration: 64s
+);
+$neptune: (
+        size:30px,
+        animation-duration: 128s
+);
+$pluto: (
+        size:14px,
+        animation-duration: 256s
+);
+
+$planets: (
+        mercuriu: $mercuriu,
+        venera: $venera,
+        earth: $earth,
+        mars: $mars,
+        jupiter: $jupiter,
+        saturn: $saturn,
+        uranus: $uranus,
+        neptune: $neptune,
+        pluto: $pluto
+);
+
+$planets-count: counter($planets);
+$min-orbit: map_get($sun, size) + 30px;
+$step-orbit: 80px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-image: url('#{$imgpath}space.jpg');
+  background-position: center;
+}
+
+body {
+  perspective: 800px;
+}
+
+.sun-system {
+  position: relative;
+  height: 100%;
+  border-width: 1px;
+  transform-style: preserve-3d;
+  transform: rotateX(70deg) rotateY(15deg);
+}
+
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: dotted;
+  border-color: white;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+.planet {
+  position: absolute;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-style: preserve-3d;
+
+  img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: reverse;
+  }
+}
+
+.sun {
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  transform: rotateX(-70deg);
+  transform-style: preserve-3d;
+
+  img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+$i: 0;
+@each $planet-name, $planet-attrib in $planets {
+
+  $planet-size: map_get($planet-attrib, size);
+
+  .planet_#{$planet-name} {
+    width: $planet-size;
+    height: $planet-size;
+    top: calc(50% - #{$planet-size / 2});
+    left: calc(50% - #{$planet-size / 2});
+    animation-name: #{$planet-name};
+    animation-duration: map_get($planet-attrib, animation-duration);
+
+    img {
+      animation-duration: map_get($planet-attrib, animation-duration);
+    }
+  }
+
+  $orbit-size: $min-orbit + $step-orbit * $i;
+  .orbit_#{$planet-name} {
+    width: $orbit-size;
+    height: $orbit-size;
+  }
+
+  @keyframes #{$planet-name} {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX($orbit-size / 2);
+    }
+    100% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX($orbit-size / 2);
+    }
+  }
+  $i: $i + 1;
+}
+
+@keyframes reverse {
+  0% {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+  }
+}

@@ -1,0 +1,319 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-image: url("../img/space.jpg");
+  background-position: center;
+}
+
+body {
+  perspective: 800px;
+}
+
+.sun-system {
+  position: relative;
+  height: 100%;
+  border-width: 1px;
+  transform-style: preserve-3d;
+  transform: rotateX(70deg) rotateY(15deg);
+}
+
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: dotted;
+  border-color: white;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+.planet {
+  position: absolute;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-style: preserve-3d;
+}
+
+.planet img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: reverse;
+}
+
+.sun {
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  transform: rotateX(-70deg);
+  transform-style: preserve-3d;
+}
+
+.sun img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.planet_mercuriu {
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  animation-name: mercuriu;
+  animation-duration: 1s;
+}
+
+.planet_mercuriu img {
+  animation-duration: 1s;
+}
+
+.orbit_mercuriu {
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes mercuriu {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(60px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(60px);
+  }
+}
+
+.planet_venera {
+  width: 35px;
+  height: 35px;
+  top: calc(50% - 17.5px);
+  left: calc(50% - 17.5px);
+  animation-name: venera;
+  animation-duration: 2s;
+}
+
+.planet_venera img {
+  animation-duration: 2s;
+}
+
+.orbit_venera {
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes venera {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(100px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(100px);
+  }
+}
+
+.planet_earth {
+  width: 40px;
+  height: 40px;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  animation-name: earth;
+  animation-duration: 4s;
+}
+
+.planet_earth img {
+  animation-duration: 4s;
+}
+
+.orbit_earth {
+  width: 280px;
+  height: 280px;
+}
+
+@keyframes earth {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(140px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(140px);
+  }
+}
+
+.planet_mars {
+  width: 30px;
+  height: 30px;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  animation-name: mars;
+  animation-duration: 8s;
+}
+
+.planet_mars img {
+  animation-duration: 8s;
+}
+
+.orbit_mars {
+  width: 360px;
+  height: 360px;
+}
+
+@keyframes mars {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(180px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(180px);
+  }
+}
+
+.planet_jupiter {
+  width: 70px;
+  height: 70px;
+  top: calc(50% - 35px);
+  left: calc(50% - 35px);
+  animation-name: jupiter;
+  animation-duration: 16s;
+}
+
+.planet_jupiter img {
+  animation-duration: 16s;
+}
+
+.orbit_jupiter {
+  width: 440px;
+  height: 440px;
+}
+
+@keyframes jupiter {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(220px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(220px);
+  }
+}
+
+.planet_saturn {
+  width: 60px;
+  height: 60px;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  animation-name: saturn;
+  animation-duration: 32s;
+}
+
+.planet_saturn img {
+  animation-duration: 32s;
+}
+
+.orbit_saturn {
+  width: 520px;
+  height: 520px;
+}
+
+@keyframes saturn {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(260px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(260px);
+  }
+}
+
+.planet_uranus {
+  width: 30px;
+  height: 30px;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  animation-name: uranus;
+  animation-duration: 64s;
+}
+
+.planet_uranus img {
+  animation-duration: 64s;
+}
+
+.orbit_uranus {
+  width: 600px;
+  height: 600px;
+}
+
+@keyframes uranus {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(300px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(300px);
+  }
+}
+
+.planet_neptune {
+  width: 30px;
+  height: 30px;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  animation-name: neptune;
+  animation-duration: 128s;
+}
+
+.planet_neptune img {
+  animation-duration: 128s;
+}
+
+.orbit_neptune {
+  width: 680px;
+  height: 680px;
+}
+
+@keyframes neptune {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(340px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(340px);
+  }
+}
+
+.planet_pluto {
+  width: 14px;
+  height: 14px;
+  top: calc(50% - 7px);
+  left: calc(50% - 7px);
+  animation-name: pluto;
+  animation-duration: 256s;
+}
+
+.planet_pluto img {
+  animation-duration: 256s;
+}
+
+.orbit_pluto {
+  width: 760px;
+  height: 760px;
+}
+
+@keyframes pluto {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg) translateX(380px);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(380px);
+  }
+}
+
+@keyframes reverse {
+  0% {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
